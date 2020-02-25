@@ -13,6 +13,8 @@ Also, it allows you to use and parse components from `Picasso` directly in markd
 
 Visit [demo page](https://markdown-to-react.now.sh/) and try it on your own
 
+Copy and past following text and press `Run` button
+
 ```md
 # Heading 1
 ## Heading 2
@@ -26,3 +28,5 @@ Paragraphy
 
 <Link target='_blank' href='http://toptal.com'>Link component</Link>
 ```
+
+Also there is posibility to fetch content dynamically from `.md` file. To test it click on `Load .md file` and you will see content loaded from `demo.md` file placed in project's `src` folder.
