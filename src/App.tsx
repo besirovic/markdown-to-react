@@ -49,7 +49,19 @@ const App = () => {
   const inputRef = useRef<HTMLInputElement>(null)
   const [markdown, setMarkdown] = useState('')
 
-  const handleClick = () => {
+  const handleLoadClick = async () => {
+    const file = await import('./demo.md')
+    const response = await fetch(file.default)
+    const md = await response.text()
+
+    if (inputRef.current) {
+      inputRef.current.value = md
+    }
+
+    setMarkdown(md)
+  }
+  
+  const handleRunClick = () => {
     if (inputRef.current) {
       setMarkdown(inputRef.current?.value)
     }
@@ -63,7 +75,10 @@ const App = () => {
           <Container flex={true} direction='column' padded='medium' style={{ height: '100%' }}>
             <Container flex={true} direction='row' justifyContent='space-between' alignItems='center' bottom='small'>
               <Typography variant='heading' size='large' color='blue'>Markdown to React with Picasso</Typography>
-              <Button variant='primary-blue' size='medium' onClick={handleClick}>Run</Button>
+              <Container>
+                <Button variant='primary-blue' size='medium' onClick={handleLoadClick}>Load .md file</Button>
+                <Button variant='primary-blue' size='medium' onClick={handleRunClick}>Run</Button>
+              </Container>
             </Container>
             <Input multiline={true} type='textarea' rows={40} ref={inputRef} style={{ width: '100%'}} placeholder='Place your markdown here' />
           </Container>
