@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import Picasso, { Page, Grid, Container, Input, Typography, Button, Link, Helpbox } from '@toptal/picasso';
+import Picasso, { Grid, Container, Input, Typography, Button, Link, Helpbox } from '@toptal/picasso';
 import Markdown from 'markdown-to-jsx';
 
 const overrides = {
